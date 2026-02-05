@@ -5,28 +5,6 @@ The purpose of this file is to help students practice writing functions and usin
 '''
 
 
-def is_even(n):
-    '''
-    Return True if n is even and False if n is odd.
-
-    HINT:
-    Use the modulus operator %
-
-    >>> is_even(0)
-    True
-    >>> is_even(1)
-    False
-    >>> is_even(2000)
-    True
-    >>> is_even(-8)
-    True
-    >>> is_even(-9)
-    False
-    >>> type(is_even(0))
-    <class 'bool'>
-    '''
-
-    return n % 2 == 0
 
 
 
