@@ -1,6 +1,6 @@
 # CSCI040: Continuous Integration Example
 
-<img src="https://github.com/yyuan29/yyuan29python/workflows/tests/badge.svg" />
+<img src="https://github.com/yyuan29/yyuan29python.github.io/workflows/tests/badge.svg" />
 
 This repo is for an in-class example of how to use doctests and continuous integration on github.
 
