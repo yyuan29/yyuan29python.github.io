@@ -386,7 +386,7 @@ def fibonacci(n):
         f1 = fn
     
     return f1
-"""
+
 ################################################################################
 # PART II:
 #
@@ -414,7 +414,17 @@ def cigar_party(cigars, is_weekend):
     >>> cigar_party(40, False)
     True
     '''
-
+    if cigars < 40: 
+        return False
+    
+    if cigars >= 40: 
+        if is_weekend: 
+            return True
+        else:
+            if cigars > 60: 
+                return False
+            else: 
+                return True
 
 def speeding_fine(speed, birthday):
     '''
@@ -450,7 +460,13 @@ def speeding_fine(speed, birthday):
     >>> speeding_fine(90, False)
     2000
     '''
+    bonus = 5 if birthday else 0
 
+    if speed <= 60 + bonus: 
+        return 0
+    if speed <= 80 + bonus: 
+        return 100
+    return 2000
 
 def near_ten(x):
     '''
@@ -471,7 +487,9 @@ def near_ten(x):
     >>> near_ten(-42)
     True
     '''
+    remainder = x % 10
 
+    return remainder <= 2 or remainder >= 8
 
 def love6(a, b):
     '''
@@ -499,6 +517,16 @@ def love6(a, b):
     True
     '''
 
+    if a == 6 or b == 6: 
+        return True
+    
+    if a + b == 6: 
+        return True 
+    
+    if abs(a-b) == 6: 
+        return True 
+    
+    return False
 
 def funny_sum(a, b, c):
     '''
@@ -525,6 +553,16 @@ def funny_sum(a, b, c):
     13
     '''
 
+    if a == b == c:
+        return 0 
+    if a == b: 
+        return c
+    if a == c: 
+        return b 
+    if b == c: 
+        return a
+    
+    return a + b + c
 
 def median(a, b, c):
     '''
@@ -544,6 +582,11 @@ def median(a, b, c):
     -2
     '''
 
+    if (b <= a <= c) or (c <= a <= b):
+        return a 
+    if (a <= b <= c) or (c <= b <= a):
+        return b 
+    return c 
 
 def sum_between(a, b):
     '''
@@ -568,6 +611,15 @@ def sum_between(a, b):
     >>> sum_between(0, 123456)
     7620753696
     '''
+    low = min(a, b)
+    high = max(a, b)
+
+    total = 0 
+    for i in range (low, high + 1):
+        total += i 
+    
+    return total
+
 
 ################################################################################
 # PART III:
@@ -591,8 +643,10 @@ def largest(xs):
     10
     >>> largest([])
     '''
-
-
+    if not xs: 
+        return None 
+    return max(xs)
+"""
 def last_element(xs):
     '''
     Return the last element of the input list.
