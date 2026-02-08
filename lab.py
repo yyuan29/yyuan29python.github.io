@@ -646,7 +646,7 @@ def largest(xs):
     if not xs: 
         return None 
     return max(xs)
-"""
+
 def last_element(xs):
     '''
     Return the last element of the input list.
@@ -663,6 +663,10 @@ def last_element(xs):
     1
     >>> last_element([])
     '''
+
+    if xs: 
+        return xs[-1]
+    return None
 
 
 def last_element_list(xs):
@@ -681,7 +685,7 @@ def last_element_list(xs):
     >>> last_element_list([])
     []
     '''
-
+    return xs[-1:]
 
 def first_three(xs):
     '''
@@ -701,7 +705,7 @@ def first_three(xs):
     >>> first_three([])
     []
     '''
-
+    return xs[0:3]
 
 def last_three(xs):
     '''
@@ -718,7 +722,7 @@ def last_three(xs):
     >>> last_three([0,1])
     [0, 1]
     '''
-
+    return xs[-3:]
 
 def largest3(xs):
     '''
@@ -735,6 +739,9 @@ def largest3(xs):
     >>> largest3([])
     []
     '''
+    sortedlist = sorted(xs)
+
+    return sortedlist[-3:]
 
 
 def filter_odd(xs):
@@ -753,7 +760,14 @@ def filter_odd(xs):
     >>> filter_odd([20,13,4,16,8,19,10])
     [20, 4, 16, 8, 10]
     '''
+    
+    evenslist = []
 
+    for num in xs:
+        if num % 2 == 0:
+            evenslist.append(num)
+    
+    return evenslist
 
 def filter_even(xs):
     '''
@@ -771,6 +785,13 @@ def filter_even(xs):
     >>> filter_even([20,13,4,16,8,19,10])
     [13, 19]
     '''
+    oddslist = []
+
+    for num in xs:
+        if num % 2 == 1:
+            oddslist.append(num)
+    
+    return oddslist
 
 
 def bigger_than_10(xs):
@@ -786,6 +807,13 @@ def bigger_than_10(xs):
     >>> bigger_than_10([4,5,6,11])
     1
     '''
+    count = 0 
+
+    for i in xs: 
+        if i > 10: 
+            count += 1
+    
+    return count
 
 
 def second_largest(xs):
@@ -805,6 +833,13 @@ def second_largest(xs):
     >>> second_largest([10])
     >>> second_largest([])
     '''
+    sortedlist = sorted(xs)
+
+    if len(xs) < 2: 
+        return None
+    
+    return sortedlist[-2:]
+    
 
 
 def has_index_at_value(xs):
@@ -838,7 +873,10 @@ def has_index_at_value(xs):
     >>> has_index_at_value([2, 9, 5, 4, 19, 4, 4, 4, 4, 4])
     False
     '''
-
+    for i in range(len(xs)): 
+        if xs[i] == i: 
+            return True 
+    return False
 
 def nested_filter_odd(xss):
     '''
@@ -853,6 +891,13 @@ def nested_filter_odd(xss):
     >>> nested_filter_odd([[20],[13,4,16,8,19],[10], [15, 13, 1]])
     [20, 4, 16, 8, 10]
     '''
+    evenlist = []
+    for i in xss:
+        for k in i: 
+            if k % 2 == 0: 
+                evenlist.append(k)
+
+    return evenlist
 
 
 def flatten(xss):
@@ -868,7 +913,12 @@ def flatten(xss):
     >>> flatten([[10]])
     [10]
     '''
+    flatlist = []
 
+    for i in xss:
+        for k in i: 
+            flatlist.append(k)
+    return flatlist
 
 def filter_flatten(xss):
     '''
@@ -893,5 +943,8 @@ def filter_flatten(xss):
     >>> filter_flatten([[10]])
     [10]
     '''
-
-"""
+    result = []
+    for i in range(len(xss)):
+        result.append(xss[i][i])
+    
+    return result
