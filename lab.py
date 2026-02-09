@@ -838,7 +838,10 @@ def second_largest(xs):
     if len(xs) < 2: 
         return None
     
-    return sortedlist[-2:-1]
+    return sortedlist[-2]
+
+    
+   
     
 
 
